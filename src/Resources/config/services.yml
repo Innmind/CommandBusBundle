@@ -1,0 +1,18 @@
+services:
+    innmind_command_bus.default:
+        class: Innmind\CommandBusBundle\ContainerAwareCommandBus
+        arguments:
+            - '@service_container'
+            - []
+        factory:
+            - Innmind\CommandBusBundle\Factory\ContainerAwareCommandBusFactory
+            - make
+        tags:
+            - { name: innmind_command_bus, alias: default }
+
+    innmind_command_bus.queue:
+        class: Innmind\CommandBus\QueueableCommandBus
+        arguments:
+            - ~
+        tags:
+            - { name: innmind_command_bus, alias: queue }
