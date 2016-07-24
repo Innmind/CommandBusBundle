@@ -24,7 +24,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-            new Innmind\InnmindCommandBusBundle,
+            new Innmind\CommandBusBundle\InnmindCommandBusBundle,
         );
         // ...
     }
