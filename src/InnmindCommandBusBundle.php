@@ -3,7 +3,10 @@ declare(strict_types = 1);
 
 namespace Innmind\CommandBusBundle;
 
-use Innmind\CommandBusBundle\DependencyInjection\Compiler\BuildCommandBusStackPass;
+use Innmind\CommandBusBundle\DependencyInjection\Compiler\{
+    BuildCommandBusStackPass,
+    RegisterHandlersPass
+};
 use Symfony\Component\{
     HttpKernel\Bundle\Bundle,
     DependencyInjection\ContainerBuilder
@@ -18,6 +21,8 @@ final class InnmindCommandBusBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new BuildCommandBusStackPass);
+        $container
+            ->addCompilerPass(new BuildCommandBusStackPass)
+            ->addCompilerPass(new RegisterHandlersPass);
     }
 }

@@ -5,7 +5,8 @@ namespace Tests\Innmind\CommandBusBundle;
 
 use Innmind\CommandBusBundle\{
     InnmindCommandBusBundle,
-    DependencyInjection\Compiler\BuildCommandBusStackPass
+    DependencyInjection\Compiler\BuildCommandBusStackPass,
+    DependencyInjection\Compiler\RegisterHandlersPass
 };
 use Symfony\Component\{
     HttpKernel\Bundle\Bundle,
@@ -24,10 +25,14 @@ class InnmindCommandBusBundleTest extends \PHPUnit_Framework_TestCase
         $passes = $container
             ->getCompilerPassConfig()
             ->getBeforeOptimizationPasses();
-        $this->assertSame(1, count($passes));
+        $this->assertSame(2, count($passes));
         $this->assertInstanceOf(
             BuildCommandBusStackPass::class,
             $passes[0]
+        );
+        $this->assertInstanceOf(
+            RegisterHandlersPass::class,
+            $passes[1]
         );
     }
 }
