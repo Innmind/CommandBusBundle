@@ -1,1 +1,9 @@
 services:
+    innmind_command_bus.default:
+        class: Innmind\CommandBusBundle\ContainerAwareCommandBus
+        arguments:
+            - '@service_container'
+            - []
+        factory:
+            - Innmind\CommandBusBundle\Factory\ContainerAwareCommandBusFactory
+            - make
