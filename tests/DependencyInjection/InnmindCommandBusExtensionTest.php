@@ -3,7 +3,10 @@ declare(strict_types = 1);
 
 namespace Tests\Innmind\CommandBusBundle\DependencyInjection;
 
-use Innmind\CommandBusBundle\DependencyInjection\InnmindCommandBusExtension;
+use Innmind\CommandBusBundle\{
+    DependencyInjection\InnmindCommandBusExtension,
+    InnmindCommandBusBundle
+};
 use Symfony\Component\{
     HttpKernel\DependencyInjection\Extension,
     DependencyInjection\ContainerBuilder
@@ -18,15 +21,35 @@ class InnmindCommandBusExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Extension::class, $extension);
         $this->assertNull($extension->load(
-            [[
-                'stack' => ['foo'],
-            ]],
+            [],
             $container
         ));
+
+        (new InnmindCommandBusBundle)->build($container);
+        $container->compile();
+
         $this->assertTrue($container->hasParameter('innmind_command_bus.stack'));
         $this->assertSame(
-            ['foo'],
+            ['queue', 'default'],
             $container->getParameter('innmind_command_bus.stack')
+        );
+        $this->assertSame(
+            'innmind_command_bus.queue',
+            (string) $container->getAlias('innmind_command_bus')
+        );
+    }
+
+    /**
+     * @expectedException Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedExceptionMessage The path "innmind_command_bus.stack" should have at least 1 element(s) defined.
+     */
+    public function testThrowWhenEmptyStack()
+    {
+        (new InnmindCommandBusExtension)->load(
+            [[
+                'stack' => [],
+            ]],
+            new ContainerBuilder
         );
     }
 }

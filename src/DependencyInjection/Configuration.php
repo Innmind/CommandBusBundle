@@ -21,7 +21,8 @@ final class Configuration implements ConfigurationInterface
         $root
             ->children()
                 ->arrayNode('stack')
-                    ->defaultValue([])
+                    ->requiresAtLeastOneElement()
+                    ->defaultValue(['queue', 'default'])
                     ->prototype('scalar')->end()
                 ->end()
             ->end();

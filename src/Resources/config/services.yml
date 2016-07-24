@@ -7,3 +7,12 @@ services:
         factory:
             - Innmind\CommandBusBundle\Factory\ContainerAwareCommandBusFactory
             - make
+        tags:
+            - { name: innmind_command_bus, alias: default }
+
+    innmind_command_bus.queue:
+        class: Innmind\CommandBus\QueueableCommandBus
+        arguments:
+            - ~
+        tags:
+            - { name: innmind_command_bus, alias: queue }
