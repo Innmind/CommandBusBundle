@@ -15,7 +15,10 @@
         "issues": "http://github.com/Innmind/CommandBusBundle/issues"
     },
     "require": {
-        "php": "~7.0"
+        "php": "~7.0",
+        "symfony/http-kernel": "~3.0",
+        "symfony/dependency-injection": "~3.0",
+        "symfony/config": "~3.0"
     },
     "autoload": {
         "psr-4": {
