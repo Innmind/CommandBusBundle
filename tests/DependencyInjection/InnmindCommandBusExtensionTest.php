@@ -9,8 +9,10 @@ use Innmind\CommandBusBundle\{
 };
 use Symfony\Component\{
     HttpKernel\DependencyInjection\Extension,
-    DependencyInjection\ContainerBuilder
+    DependencyInjection\ContainerBuilder,
+    DependencyInjection\Definition
 };
+use Psr\Log\NullLogger;
 
 class InnmindCommandBusExtensionTest extends \PHPUnit_Framework_TestCase
 {
@@ -18,6 +20,10 @@ class InnmindCommandBusExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $container = new ContainerBuilder;
         $extension = new InnmindCommandBusExtension;
+        $container->setDefinition(
+            'logger',
+            new Definition(NullLogger::class)
+        );
 
         $this->assertInstanceOf(Extension::class, $extension);
         $this->assertNull($extension->load(
@@ -30,7 +36,7 @@ class InnmindCommandBusExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($container->hasParameter('innmind_command_bus.stack'));
         $this->assertSame(
-            ['queue', 'default'],
+            ['queue', 'logger', 'default'],
             $container->getParameter('innmind_command_bus.stack')
         );
         $this->assertSame(

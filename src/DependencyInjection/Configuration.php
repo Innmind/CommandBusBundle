@@ -22,7 +22,7 @@ final class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('stack')
                     ->requiresAtLeastOneElement()
-                    ->defaultValue(['queue', 'default'])
+                    ->defaultValue(['queue', 'logger', 'default'])
                     ->prototype('scalar')->end()
                 ->end()
             ->end();

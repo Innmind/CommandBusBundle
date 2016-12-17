@@ -16,3 +16,11 @@ services:
             - ~
         tags:
             - { name: innmind_command_bus, alias: queue }
+
+    innmind_command_bus.logger:
+        class: Innmind\CommandBus\LoggerCommandBus
+        arguments:
+            - ~
+            - '@logger'
+        tags:
+            - { name: innmind_command_bus, alias: logger }

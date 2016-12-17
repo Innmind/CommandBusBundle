@@ -19,12 +19,18 @@
         "symfony/http-kernel": "~3.0",
         "symfony/dependency-injection": "~3.0",
         "symfony/config": "~3.0",
-        "innmind/command-bus": "~1.0"
+        "innmind/command-bus": "~1.1"
     },
     "autoload": {
         "psr-4": {
             "Innmind\\CommandBusBundle\\": "src/",
             "Tests\\Innmind\\CommandBusBundle\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.6"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always"
     }
 }
