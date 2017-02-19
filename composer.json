@@ -23,7 +23,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Innmind\\CommandBusBundle\\": "src/",
+            "Innmind\\CommandBusBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Tests\\Innmind\\CommandBusBundle\\": "tests/"
         }
     },
