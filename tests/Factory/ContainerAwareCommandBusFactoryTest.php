@@ -8,8 +8,9 @@ use Innmind\CommandBusBundle\{
     Factory\ContainerAwareCommandBusFactory
 };
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use PHPUnit\Framework\TestCase;
 
-class ContainerAwareCommandBusFactoryTest extends \PHPUnit_Framework_TestCase
+class ContainerAwareCommandBusFactoryTest extends TestCase
 {
     public function testMake()
     {

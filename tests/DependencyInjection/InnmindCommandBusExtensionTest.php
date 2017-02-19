@@ -13,8 +13,9 @@ use Symfony\Component\{
     DependencyInjection\Definition
 };
 use Psr\Log\NullLogger;
+use PHPUnit\Framework\TestCase;
 
-class InnmindCommandBusExtensionTest extends \PHPUnit_Framework_TestCase
+class InnmindCommandBusExtensionTest extends TestCase
 {
     public function testLoad()
     {

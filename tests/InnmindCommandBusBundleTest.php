@@ -12,8 +12,9 @@ use Symfony\Component\{
     HttpKernel\Bundle\Bundle,
     DependencyInjection\ContainerBuilder
 };
+use PHPUnit\Framework\TestCase;
 
-class InnmindCommandBusBundleTest extends \PHPUnit_Framework_TestCase
+class InnmindCommandBusBundleTest extends TestCase
 {
     public function testBuild()
     {

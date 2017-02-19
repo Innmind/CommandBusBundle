@@ -15,20 +15,25 @@
         "issues": "http://github.com/Innmind/CommandBusBundle/issues"
     },
     "require": {
-        "php": "~7.0",
+        "php": "~7.1",
         "symfony/http-kernel": "~3.0",
         "symfony/dependency-injection": "~3.0",
         "symfony/config": "~3.0",
-        "innmind/command-bus": "~1.1"
+        "innmind/command-bus": "~2.0",
+        "symfony/yaml": "~3.0"
     },
     "autoload": {
         "psr-4": {
-            "Innmind\\CommandBusBundle\\": "src/",
+            "Innmind\\CommandBusBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Tests\\Innmind\\CommandBusBundle\\": "tests/"
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "~5.6"
+        "phpunit/phpunit": "~6.0"
     },
     "scripts": {
         "test": "vendor/bin/phpunit --colors=always"
