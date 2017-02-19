@@ -15,11 +15,11 @@
         "issues": "http://github.com/Innmind/CommandBusBundle/issues"
     },
     "require": {
-        "php": "~7.0",
+        "php": "~7.1",
         "symfony/http-kernel": "~3.0",
         "symfony/dependency-injection": "~3.0",
         "symfony/config": "~3.0",
-        "innmind/command-bus": "~1.1",
+        "innmind/command-bus": "~2.0",
         "symfony/yaml": "~3.0"
     },
     "autoload": {
