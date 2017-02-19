@@ -19,7 +19,8 @@
         "symfony/http-kernel": "~3.0",
         "symfony/dependency-injection": "~3.0",
         "symfony/config": "~3.0",
-        "innmind/command-bus": "~1.1"
+        "innmind/command-bus": "~1.1",
+        "symfony/yaml": "~3.0"
     },
     "autoload": {
         "psr-4": {
