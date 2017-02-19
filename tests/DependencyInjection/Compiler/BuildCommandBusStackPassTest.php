@@ -18,8 +18,9 @@ use Symfony\Component\DependencyInjection\{
     Definition,
     Reference
 };
+use PHPUnit\Framework\TestCase;
 
-class BuildCommandBusStackPassTest extends \PHPUnit_Framework_TestCase
+class BuildCommandBusStackPassTest extends TestCase
 {
     public function testInterface()
     {

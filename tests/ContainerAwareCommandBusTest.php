@@ -15,8 +15,9 @@ use Symfony\Component\DependencyInjection\{
     Reference,
     Definition
 };
+use PHPUnit\Framework\TestCase;
 
-class ContainerAwareCommandBusTest extends \PHPUnit_Framework_TestCase
+class ContainerAwareCommandBusTest extends TestCase
 {
     public function testInterface()
     {
